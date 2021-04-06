@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<div style="background-color:rgb(172, 172, 169)" >
+    <div style="border-style: solid;">
+<h1 style = "font-size:40px;text-align: center; color:#0a720a ;font-family:Sans-serif,serif">My Todo List!</h1>
+</h1>
+<p style="text-align:right;font-family: Impact, Times, serif">~Vimal </p>
+</div></div>
+<!--
+<ul>
+    <li>temporary todo item A</li>
+    <li>temporary todo item B</li>
+</ul>
+-->
+<div style="background-color:#20B2AA" style="border-style: solid;" >
+<div style="border-style: solid; font-size:25px" >
+    <ol>
+    {% for todo_item in all_items %}
+    <li>{{ todo_item.content }}
+        <form action="/deleteTodo/{{ todo_item.id }}/" 
+            style="display: inline;"
+            method="POST">{% csrf_token %}
+            <button class="btn btn-primary">Delete</button><hr>
+            </form>
+    </li>
+    {% endfor %}
+</ol>
+
+<form action="/addTodo/" method="post">
+{% csrf_token %}
+<input style="background-color: #ffffff;width: 380px; height : 40px; background-color:#bcc5b4" type="text" name="content"/>
+<input style="width: 100px; height : 38px; background-color:#ffffff" type="submit" value="Add"/>
+</form>
+<br>
+<br>
+<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div></div>
